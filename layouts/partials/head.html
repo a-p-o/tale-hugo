@@ -1,6 +1,16 @@
 <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		{{/* Favicon from https://realfavicongenerator.net */}}
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=ngj9GX6a6X">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=ngj9GX6a6X">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=ngj9GX6a6X">
+		<link rel="manifest" href="/site.webmanifest?v=ngj9GX6a6X">
+		<link rel="shortcut icon" href="/favicon.ico?v=ngj9GX6a6X">
+		<meta name="msapplication-TileColor" content="#87b0ca">
+		<meta name="theme-color" content="#ffffff">
+
 		{{- if .IsHome }}
 			<meta name="description" content="{{ .Site.Params.Description }}">
 		{{- else if .Description }}
@@ -9,7 +19,7 @@
 
 		<title>{{- if .IsHome }}{{ .Site.Title }}{{- else }}{{ .Title }} &middot; {{ .Site.Title }}{{- end }}</title>
 
-		<!-- CSS -->
+		{{/* CSS */}}
 		{{- $inServerMode	:= .Site.IsServer }}
 		{{- $cssTarget		:= "css/style.css" }}
 		{{- $cssOptions		:= cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
@@ -20,11 +30,6 @@
 			<link rel="stylesheet" href="{{ . | relURL }}">
 		{{ end -}}
 
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon-32x32.png" | relURL }}">
-		<link rel="icon" type="image/png" sizes="16x16" href="{{ "images/favicon-16x16.png" | relURL }}">
-		<link rel="apple-touch-icon" sizes="180x180" href="{{ "images/apple-touch-icon.png" | relURL }}">
-
-		<!-- RSS -->
+		{{/* RSS */}}
 		<link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 	</head>
