@@ -3,12 +3,11 @@ $default-color: #1e1e1e;
 $default-shade: #353535;
 $default-tint: #3c3c3c;
 $grey-1: #1e1e1e;
-$grey-2: #3c3c3c;
-$grey-3: #5a5a5a;
+$grey-2: #eaebeb;
 $white: #fff;
-$blue: #3264ff;
+$blue: #0366d6;
 $shadow-color: rgba(0, 0, 0, .2);
-$code-color: #bf616a;
+$code-color: $default-color;
 
 // Fonts
 $serif-primary: 'Libre Baskerville', 'Times New Roman', Times, serif;
